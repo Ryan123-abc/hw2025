@@ -1,8 +1,10 @@
 #include<stdio.h>
 #include"Round.h"
-#include<math.h>
 
 void rounding(double *n, int p){
-	double num = pow(10, p);
-	*n = round(*n * num) / num;
+	double factor = 1;
+    for (int i = 0; i < p; i++) {
+        factor *= 10;
+    }
+    *n = (int)((*n * factor) + 0.5) / factor;
 }
